@@ -31,11 +31,34 @@ public class BigramImplementacija {
 
 	@SuppressWarnings("rawtypes")
 	public void ispisi(HashMap<String, Integer> hashMap) {	
-		Iterator<?> i = hashMap.entrySet().iterator();
+		Iterator<?> itr = hashMap.entrySet().iterator();
 		
-		while (i.hasNext()) {
-			HashMap.Entry b = (HashMap.Entry) i.next();
+		while (itr.hasNext()) {
+			HashMap.Entry b = (HashMap.Entry) itr.next();
 			System.out.println(b.getKey() + " " + b.getValue());
 		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public String predvidjanjeKaraktera(HashMap<String, Integer> hashMap, String tekst) {
+		for (int i = 0; i < 3; i++) {
+			int max = 0;
+			String kraj = tekst.substring(tekst.length()-1);
+			Iterator<?> itr = hashMap.entrySet().iterator();
+			String bigram = null;
+			
+			while (itr.hasNext()) {
+				HashMap.Entry h = (HashMap.Entry) itr.next();
+				String key = (String)h.getKey();
+				if (key.startsWith(kraj)) {
+					if ((Integer) h.getValue() > max) {
+						bigram = (String) h.getKey();
+						max = (Integer) h.getValue();
+					}
+				}
+			}
+			tekst = tekst.concat(bigram.substring(1));
+		}
+		return tekst;
 	}
 }
