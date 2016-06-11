@@ -3,6 +3,7 @@ package bigram;
 import java.util.HashMap;
 
 public class Bigram {	
+	
 	public static void main(String[] args) {
 		
 		BigramImplementacija b = new BigramImplementacija();
@@ -17,4 +18,5 @@ public class Bigram {
 		
 		System.out.println("\nRezultat: " +b.predvidjanjeKaraktera(hashMap, "ja"));
 	}	
+	
 }

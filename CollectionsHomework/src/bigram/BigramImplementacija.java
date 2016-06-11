@@ -18,7 +18,7 @@ public class BigramImplementacija {
 		int brojac = 0;
 		
 		if (bigram.length() != 2) {
-			throw new RuntimeException("Greska!Bigram mora imati 2 slova!");
+			throw new RuntimeException("Greska! Bigram mora imati tacno 2 slova!");
 		}
 		
 		for (int i = 0; i < tekst.length() - 1; i++) {
@@ -29,7 +29,6 @@ public class BigramImplementacija {
 		return brojac;
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void ispisi(HashMap<String, Integer> hashMap) {	
 		Iterator<?> itr = hashMap.entrySet().iterator();
 		
@@ -39,7 +38,6 @@ public class BigramImplementacija {
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public String predvidjanjeKaraktera(HashMap<String, Integer> hashMap, String tekst) {
 		for (int i = 0; i < 3; i++) {
 			int max = 0;
